@@ -24,13 +24,13 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.List;
 
-import static com.google.common.collect.Iterables.cycle;
 import static com.facebook.slice.SizeOf.SIZE_OF_BYTE;
 import static com.facebook.slice.SizeOf.SIZE_OF_DOUBLE;
 import static com.facebook.slice.SizeOf.SIZE_OF_FLOAT;
 import static com.facebook.slice.SizeOf.SIZE_OF_INT;
 import static com.facebook.slice.SizeOf.SIZE_OF_LONG;
 import static com.facebook.slice.SizeOf.SIZE_OF_SHORT;
+import static com.google.common.collect.Iterables.cycle;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;

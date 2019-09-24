@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import static com.google.common.primitives.Bytes.concat;
 import static com.facebook.slice.SliceUtf8.codePointToUtf8;
 import static com.facebook.slice.SliceUtf8.compareUtf16BE;
 import static com.facebook.slice.SliceUtf8.countCodePoints;
@@ -47,6 +46,7 @@ import static com.facebook.slice.SliceUtf8.trim;
 import static com.facebook.slice.Slices.EMPTY_SLICE;
 import static com.facebook.slice.Slices.utf8Slice;
 import static com.facebook.slice.Slices.wrappedBuffer;
+import static com.google.common.primitives.Bytes.concat;
 import static java.lang.Character.MAX_CODE_POINT;
 import static java.lang.Character.MIN_SURROGATE;
 import static java.lang.Character.SURROGATE;

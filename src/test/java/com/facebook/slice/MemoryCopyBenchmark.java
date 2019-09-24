@@ -30,8 +30,8 @@ import org.openjdk.jmh.runner.options.VerboseMode;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.google.common.base.Verify.verify;
 import static com.facebook.slice.JvmUtils.unsafe;
+import static com.google.common.base.Verify.verify;
 
 @SuppressWarnings("restriction")
 @BenchmarkMode(Mode.Throughput)

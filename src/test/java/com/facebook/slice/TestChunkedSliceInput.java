@@ -13,9 +13,9 @@
  */
 package com.facebook.slice;
 
-import com.google.common.base.Strings;
 import com.facebook.slice.ChunkedSliceInput.BufferReference;
 import com.facebook.slice.ChunkedSliceInput.SliceLoader;
+import com.google.common.base.Strings;
 import org.openjdk.jol.info.ClassLayout;
 import org.testng.annotations.Test;
 
