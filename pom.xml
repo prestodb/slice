@@ -4,7 +4,7 @@
 
     <groupId>com.facebook</groupId>
     <artifactId>slice</artifactId>
-    <version>0.37</version>
+    <version>0.38-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>slice</name>
@@ -139,8 +139,4 @@
             </build>
         </profile>
     </profiles>
-
-  <scm>
-    <tag>0.37</tag>
-  </scm>
 </project>
