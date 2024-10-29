@@ -316,11 +316,11 @@ public class OutputStreamSliceOutput
     @Override
     public String toString()
     {
-        StringBuilder builder = new StringBuilder("OutputStreamSliceOutputAdapter{");
-        builder.append("outputStream=").append(outputStream);
-        builder.append("bufferSize=").append(slice.length());
-        builder.append('}');
-        return builder.toString();
+        return new StringBuilder(56)
+                .append("OutputStreamSliceOutputAdapter{")
+                .append("outputStream=").append(outputStream)
+                .append("bufferSize=").append(slice.length())
+                .append('}').toString();
     }
 
     private void ensureWritableBytes(int minWritableBytes)

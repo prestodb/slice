@@ -17,6 +17,7 @@ import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableList;
 import com.google.common.io.ByteSource;
 import com.google.common.io.ByteStreams;
+import org.gaul.modernizer_maven_annotations.SuppressModernizer;
 import org.testng.annotations.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -476,7 +477,7 @@ public abstract class AbstractSliceInputTest
     {
         SliceInput input = createSliceInput(slice);
         try {
-            ByteStreams.skipFully(input, slice.length() - tester.valueSize() + 1);
+            input.skipNBytes(slice.length() - tester.valueSize() + 1);
         }
         catch (IOException e) {
             throw Throwables.propagate(e);
@@ -484,10 +485,12 @@ public abstract class AbstractSliceInputTest
         tester.verifyReadOffEnd(input);
     }
 
+    @SuppressModernizer
     private static String getExpectedStringValue(int index, int size)
     {
         try {
-            return ByteSource.concat(cycle(ByteSource.wrap(String.valueOf(index).getBytes(UTF_8)))).slice(0, size).asCharSource(UTF_8).read();
+            return ByteSource.concat(cycle(ByteSource.wrap(String.valueOf(index).getBytes(UTF_8))))
+                    .slice(0, size).asCharSource(UTF_8).read();
         }
         catch (IOException e) {
             throw Throwables.propagate(e);

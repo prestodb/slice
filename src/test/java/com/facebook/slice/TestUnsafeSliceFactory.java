@@ -17,13 +17,11 @@ import com.google.common.primitives.Ints;
 import org.testng.annotations.Test;
 
 import java.nio.ByteBuffer;
-import java.security.Permission;
 
 import static com.facebook.slice.JvmUtils.bufferAddress;
 import static com.facebook.slice.JvmUtils.unsafe;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import static org.testng.Assert.fail;
 
 public class TestUnsafeSliceFactory
 {
@@ -63,30 +61,5 @@ public class TestUnsafeSliceFactory
 
         slice.setInt(32, 0xDEADBEEF);
         assertEquals(slice.getInt(32), 0xDEADBEEF);
-    }
-
-    @Test(expectedExceptions = SecurityException.class)
-    public void testSecurity()
-            throws Exception
-    {
-        SecurityManager saved = System.getSecurityManager();
-        System.setSecurityManager(new SecurityManager()
-        {
-            @Override
-            public void checkPermission(Permission perm)
-            {
-                if (perm.getName().equals("suppressAccessChecks")) {
-                    throw new SecurityException();
-                }
-            }
-        });
-
-        try {
-            UnsafeSliceFactory.getInstance();
-            fail("expected SecurityException");
-        }
-        finally {
-            System.setSecurityManager(saved);
-        }
     }
 }

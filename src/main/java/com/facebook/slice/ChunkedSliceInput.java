@@ -324,13 +324,14 @@ public final class ChunkedSliceInput
     @Override
     public String toString()
     {
-        StringBuilder builder = new StringBuilder("SliceStreamInput{");
-        builder.append("globalLength=").append(globalLength);
-        builder.append(", globalPosition=").append(globalPosition);
-        builder.append(", bufferLength=").append(bufferLength);
-        builder.append(", bufferPosition=").append(bufferPosition);
-        builder.append('}');
-        return builder.toString();
+        return new StringBuilder(80)
+                .append("SliceStreamInput{")
+                .append("globalLength=").append(globalLength)
+                .append(", globalPosition=").append(globalPosition)
+                .append(", bufferLength=").append(bufferLength)
+                .append(", bufferPosition=").append(bufferPosition)
+                .append('}')
+                .toString();
     }
 
     private static void checkBound(long index, long size, String message)
