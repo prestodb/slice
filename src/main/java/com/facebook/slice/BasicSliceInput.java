@@ -248,10 +248,11 @@ public final class BasicSliceInput
     @Override
     public String toString()
     {
-        StringBuilder builder = new StringBuilder("BasicSliceInput{");
-        builder.append("position=").append(position);
-        builder.append(", capacity=").append(slice.length());
-        builder.append('}');
-        return builder.toString();
+        return new StringBuilder(37)
+                .append("BasicSliceInput{")
+                .append("position=").append(position)
+                .append(", capacity=").append(slice.length())
+                .append('}')
+                .toString();
     }
 }

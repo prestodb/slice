@@ -61,6 +61,7 @@ public final class Slice
     private static final int INSTANCE_SIZE = ClassLayout.parseClass(Slice.class).instanceSize();
     private static final Object COMPACT = new byte[0];
     private static final Object NOT_COMPACT = null;
+    private static final ByteBuffer EMPTY_BYTE_BUFFER = ByteBuffer.allocate(0);
 
     /**
      * @deprecated use {@link Slices#wrappedBuffer(java.nio.ByteBuffer)}
@@ -1250,6 +1251,10 @@ public final class Slice
             return ByteBuffer.wrap(byteArray(), byteArrayOffset() + index, length).slice();
         }
 
+        if (length() == 0) {
+            return EMPTY_BYTE_BUFFER;
+        }
+
         if ((reference instanceof ByteBuffer) && ((ByteBuffer) reference).isDirect()) {
             ByteBuffer buffer = (ByteBuffer) reference;
             int position = toIntExact(address - bufferAddress(buffer)) + index;
@@ -1269,14 +1274,16 @@ public final class Slice
     @Override
     public String toString()
     {
-        StringBuilder builder = new StringBuilder("Slice{");
+        StringBuilder builder = new StringBuilder(31)
+                .append("Slice{");
         if (base != null) {
-            builder.append("base=").append(identityToString(base)).append(", ");
+            builder.append("base=")
+                    .append(identityToString(base))
+                    .append(", ");
         }
-        builder.append("address=").append(address);
-        builder.append(", length=").append(length());
-        builder.append('}');
-        return builder.toString();
+        return builder.append("address=").append(address)
+                .append(", length=").append(length())
+                .append('}').toString();
     }
 
     private static String identityToString(Object o)

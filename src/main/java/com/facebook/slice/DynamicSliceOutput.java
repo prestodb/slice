@@ -248,11 +248,11 @@ public class DynamicSliceOutput
     @Override
     public String toString()
     {
-        StringBuilder builder = new StringBuilder("BasicSliceOutput{");
-        builder.append("size=").append(size);
-        builder.append(", capacity=").append(slice.length());
-        builder.append('}');
-        return builder.toString();
+        return new StringBuilder("BasicSliceOutput{")
+                .append("size=").append(size)
+                .append(", capacity=").append(slice.length())
+                .append('}')
+                .toString();
     }
 
     @Override

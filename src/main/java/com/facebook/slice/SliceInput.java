@@ -268,6 +268,9 @@ public abstract class SliceInput
     @Override
     public abstract int skipBytes(int length);
 
+//    @Override
+//    public abstract void skipNBytes(long n) throws IOException;
+
     @Override
     public void close()
     {
