@@ -13,6 +13,7 @@
  */
 package com.facebook.slice;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openjdk.jol.info.ClassLayout;
 import sun.misc.Unsafe;
 
@@ -1170,6 +1171,7 @@ public final class Slice
      * Creates a slice output backed by this slice.  Any data written to the
      * slice output will be immediately visible in this slice.
      */
+    @JsonIgnore
     public SliceOutput getOutput()
     {
         return new BasicSliceOutput(this);
